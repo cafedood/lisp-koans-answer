@@ -59,7 +59,7 @@
 (define-test test-let-default-value
     "let vars have a default value"
     (let ((x))
-      (assert-equal 0 x)))
+      (assert-equal nil x)))
 
 (define-test test-let-bindings-are-parallel
     "When defining the bindings in the let form, later bindings may not depend
@@ -104,13 +104,13 @@
                 (5 :five)
                 ;; t specifies default behavior
                 (t :unknown)))
-  (assert-equal ____ b)
+  (assert-equal :four b)
   "case can also check if a list of values contains
    the input"
   (setf c
         (case a (5 :five)
                 ((3 4) :three-or-four)))
-  (assert-equal ____ c))
+  (assert-equal :three-or-four c))
 
 (defun cartoon-dads (input)
     "you should be able to complete this case statement"
