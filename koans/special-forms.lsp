@@ -67,7 +67,7 @@
   (setf a 100)
   (let ((a 5)
         (b (* 10 a)))
-    (assert-equal b 50)))
+    (assert-equal b 1000)))
 
 (define-test test-let*-bindings-are-series
     "let* is like let, but successive bindings may use values of previous ones"
@@ -90,9 +90,9 @@
     (assert-equal b 200)
     (assert-equal c "Jellyfish"))
   (let* ((a 0))
-    (assert-equal a 121)
-    (assert-equal b 200)
-    (assert-equal c (+ a (/ b a)))))
+    (assert-equal a 0)
+    (assert-equal b 23)
+    (assert-equal nil (+ a (/ b a)))))
 
 (define-test test-case
     "the case form is like the C switch statement: it
