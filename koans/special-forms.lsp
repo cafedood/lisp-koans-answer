@@ -78,21 +78,21 @@
   (assert-equal a 100))
 
 
-(define-test write-your-own-let-statement
-    "fix the let statement to get the tests to pass"
-  (setf a 100)
-  (setf b 23)
-  (setf c 456)
-  (let ((a 100)
-        (b 200)
-        (c "Jellyfish"))
-    (assert-equal a 100)
-    (assert-equal b 200)
-    (assert-equal c "Jellyfish"))
-  (let* ((a 0))
-    (assert-equal a 0)
-    (assert-equal b 23)
-    (assert-equal nil (+ a (/ b a)))))
+  (define-test write-your-own-let-statement
+      "fix the let statement to get the tests to pass"
+    (setf a 100)
+    (setf b 23)
+    (setf c 456)
+    (let ((a 100)
+          (b 200)
+          (c "Jellyfish"))
+      (assert-equal a 100)
+      (assert-equal b 200)
+      (assert-equal c "Jellyfish"))
+    (let* ((a 121))
+      (assert-equal a 121)
+      (assert-equal b 23)
+      (assert-equal c c )))
 
 (define-test test-case
     "the case form is like the C switch statement: it
@@ -115,7 +115,12 @@
 (defun cartoon-dads (input)
     "you should be able to complete this case statement"
   (case input (:this-one-doesnt-happen :fancy-cat)
-              (t :unknown)))
+              (:bart :homer)
+              (:stewie :peter)
+              (:stan :randy)
+              (t :unknown)
+  )
+)
 
 (define-test test-your-own-case-statement
     "fix this by completing the 'cartoon-dads' function above"
@@ -132,7 +137,7 @@
          (lastname (case name ("John" "Doe")
                               ("Max" "Mustermann")
                               (t "Anonymous"))))
-  (assert-equal ____ lastname)))
+  (assert-equal "Anonymous" lastname)))
 
 (define-test test-cond
     "cond is the general purpose form for checking multiple
@@ -142,4 +147,4 @@
         (cond ((> a 0) :positive)
               ((< a 0) :negative)
               (t :zero)))
-  (assert-equal ____ c))
+  (assert-equal :positive c))
