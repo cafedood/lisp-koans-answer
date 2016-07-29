@@ -26,6 +26,7 @@ This is distinct from returning a list or structure of values."
       (assert-equal x '(1 1/2)))
   (assert-equal (multiple-value-list (floor 99/4)) ____))
 
+
 (defun next-fib (a b)
   (values b (+ a b)))
 
