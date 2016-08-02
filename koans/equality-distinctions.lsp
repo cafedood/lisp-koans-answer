@@ -18,12 +18,12 @@
     "(eq x y) is true if and only if x and y are the same identical object
      eq is like comparing pointers in c.  If the values are EQ, any non-nil
      value may be returned."
-  (true-or-false? ___ (eq 'a 'a))
-  (true-or-false? ___ (eq 3 3.0))
-  (true-or-false? ___ (eq '(1 2) '(1 2)))
-  (true-or-false? ___ (eq "Foo" "Foo"))
-  (true-or-false? ___ (eq "Foo" (copy-seq "Foo")))
-  (true-or-false? ___ (eq "FOO" "Foo")))
+  (true-or-false? t (eq 'a 'a))
+  (true-or-false? nil (eq 3 3.0))
+  (true-or-false? nil (eq '(1 2) '(1 2)))
+  (true-or-false? nil (eq "Foo" "Foo"))
+  (true-or-false? nil (eq "Foo" (copy-seq "Foo")))
+  (true-or-false? nil (eq "FOO" "Foo")))
 
 (define-test test-eql
     "(eql x y) is true if (eq x y)
