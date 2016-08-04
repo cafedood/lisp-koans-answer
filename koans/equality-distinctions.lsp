@@ -30,15 +30,15 @@
      also it is true if x and y are numeric of the same type
      and represent the same number.
      (eql x y) also if x and y are the same characters."
-   (true-or-false? ___ (eql 'a 'a))
-   (true-or-false? ___ (eql 3 3))
-   (true-or-false? ___ (eql 3 3.0))
-   (true-or-false? ___ (eql '(1 2) '(1 2)))
-   (true-or-false? ___ (eql  '(:a . :b) '(:a . :b)))
-   (true-or-false? ___ (eql #\S #\S))
-   (true-or-false? ___ (eql "Foo" "Foo"))
-   (true-or-false? ___ (eql "Foo" (copy-seq "Foo")))
-   (true-or-false? ___ (eql "FOO" "Foo")))
+   (true-or-false? t (eql 'a 'a))
+   (true-or-false? t (eql 3 3))
+   (true-or-false? nil (eql 3 3.0))
+   (true-or-false? nil (eql '(1 2) '(1 2)))
+   (true-or-false? nil (eql  '(:a . :b) '(:a . :b)))
+   (true-or-false? t (eql #\S #\S))
+   (true-or-false? nil (eql "Foo" "Foo"))
+   (true-or-false? nil (eql "Foo" (copy-seq "Foo")))
+   (true-or-false? nil (eql "FOO" "Foo")))
 
 (define-test test-equal
     "(equal x y) is true if (eql x y), or
