@@ -61,16 +61,16 @@
      if x and y are arrays with the same dimensions and equal elements
      if x and y are numeric of different types but one may be upgraded to
      the other type without loss and still exhibit equality."
-   (true-or-false? ___ (equalp 'a 'a))
-   (true-or-false? ___ (equalp 3 3))
-   (true-or-false? ___ (equalp 3 3.0))
-   (true-or-false? ___ (equalp '(1 2) '(1 2)))
-   (true-or-false? ___ (equalp  '(:a . :b) '(:a . :b)))
-   (true-or-false? ___ (equalp  '(:a . :b) '(:a . :doesnt-match)))
-   (true-or-false? ___ (equalp #\S #\S))
-   (true-or-false? ___ (equalp "Foo" "Foo"))
-   (true-or-false? ___ (equalp "Foo" (copy-seq "Foo")))
-   (true-or-false? ___ (equalp "FOO" "Foo")))
+   (true-or-false? t (equalp 'a 'a))
+   (true-or-false? t (equalp 3 3))
+   (true-or-false? t (equalp 3 3.0))
+   (true-or-false? t (equalp '(1 2) '(1 2)))
+   (true-or-false? t (equalp  '(:a . :b) '(:a . :b)))
+   (true-or-false? nil (equalp  '(:a . :b) '(:a . :doesnt-match)))
+   (true-or-false? t (equalp #\S #\S))
+   (true-or-false? t (equalp "Foo" "Foo"))
+   (true-or-false? t (equalp "Foo" (copy-seq "Foo")))
+   (true-or-false? t (equalp "FOO" "Foo")))
 
 (define-test test-numeric-equal
     "(= x y) is only for numerics
