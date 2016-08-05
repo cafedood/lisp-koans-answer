@@ -76,9 +76,9 @@
     "(= x y) is only for numerics
      and can take multiple arguments
      if x or y is not numeric there will be a compiler error."
-   (true-or-false? ___ (= 99.0 99 99.000))
-   (true-or-false? ___ (= 0 1 -1))
-   (true-or-false? ___ (= (/ 2 3) (/ 6 9) (/ 86 129))))
+   (true-or-false? t (= 99.0 99 99.000))
+   (true-or-false? nil (= 0 1 -1))
+   (true-or-false? t (= (/ 2 3) (/ 6 9) (/ 86 129))))
 
 ; EQ, EQL, EQUAL, and EQUALP are general equality predicates.
 ; Additionally, Lisp also provides the type-specific predicates.
