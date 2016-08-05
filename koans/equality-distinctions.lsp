@@ -44,16 +44,16 @@
     "(equal x y) is true if (eql x y), or
      x and y are lists with equal elements, or
      x and y character or bit arrays with equal elements"
-   (true-or-false? ___ (equal 'a 'a))
-   (true-or-false? ___ (equal 3 3))
-   (true-or-false? ___ (equal 3 3.0))
-   (true-or-false? ___ (equal '(1 2) '(1 2)))
-   (true-or-false? ___ (equal  '(:a . :b) '(:a . :b)))
-   (true-or-false? ___ (equal  '(:a . :b) '(:a . :doesnt-match)))
-   (true-or-false? ___ (equal #\S #\S))
-   (true-or-false? ___ (equal "Foo" "Foo"))
-   (true-or-false? ___ (equal "Foo" (copy-seq "Foo")))
-   (true-or-false? ___ (equal "FOO" "Foo")))
+   (true-or-false? t (equal 'a 'a))
+   (true-or-false? t (equal 3 3))
+   (true-or-false? nil (equal 3 3.0))
+   (true-or-false? t (equal '(1 2) '(1 2)))
+   (true-or-false? t (equal  '(:a . :b) '(:a . :b)))
+   (true-or-false? nil (equal  '(:a . :b) '(:a . :doesnt-match)))
+   (true-or-false? t (equal #\S #\S))
+   (true-or-false? t (equal "Foo" "Foo"))
+   (true-or-false? t (equal "Foo" (copy-seq "Foo")))
+   (true-or-false? nil (equal "FOO" "Foo")))
 
 (define-test test-equalp
     "(equalp x y) if (equal x y) or
