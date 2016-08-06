@@ -37,11 +37,11 @@
 
   (setf (gethash 8 table-of-cube-roots) 2)
   (setf (gethash -3 table-of-cube-roots) -27)
-  (assert-equal ___ (gethash -3 table-of-cube-roots))
-  (assert-equal ___ (hash-table-count table-of-cube-roots))
+  (assert-equal -27 (gethash -3 table-of-cube-roots))
+  (assert-equal 3 (hash-table-count table-of-cube-roots))
 
   "accessing unset keys returns nil"
-  (assert-equal ___ (gethash 125 table-of-cube-roots))))
+  (assert-equal nil (gethash 125 table-of-cube-roots))))
 
 
 (define-test test-hash-key-equality
