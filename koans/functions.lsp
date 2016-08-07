@@ -20,7 +20,7 @@
 
 (define-test test-call-a-function
     "DEFUN defines global functions"
-  (assert-equal ___ (some-named-function 7 11)))
+  (assert-equal 18 (some-named-function 7 11)))
 
 
 (define-test test-shadow-a-function
@@ -30,8 +30,8 @@
    (assert-eq 18 (some-named-function 7 11))
    "flet binds a function to a name within a lexical environment"
    (flet ((some-named-function (a b) (* a b)))
-     (assert-equal ___ (some-named-function 7 11)))
-   (assert-equal ___  (some-named-function 7 11)))
+     (assert-equal 77 (some-named-function 7 11)))
+   (assert-equal 18  (some-named-function 7 11)))
 
 
 ; borrowed from Common Lisp The Language chapter 5.2.2
@@ -43,7 +43,7 @@
     "Optional parameters are filled in with their default value."
    (assert-equal (func-with-opt-params :test-1 :test-2) ___)
    (assert-equal (func-with-opt-params :test-1) ___)
-   (assert-equal (func-with-opt-params) ___))
+   (assert-equal (func-with-opt-params) '(2 3)))
 
 
 ;; ----
