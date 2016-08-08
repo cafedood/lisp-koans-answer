@@ -70,9 +70,9 @@
 (define-test test-func-with-rest-params
   "With &rest, the remaining params, are handed in as a list.  Remaining
    arguments (possibly none) are collected into a list."
-  (assert-equal (func-with-rest-params) ___)
-  (assert-equal (func-with-rest-params 1) ___)
-   (assert-equal (func-with-rest-params 1 :two 333) ___))
+  (assert-equal (func-with-rest-params) nil)
+  (assert-equal (func-with-rest-params 1) '(1))
+   (assert-equal (func-with-rest-params 1 :two 333) '(1 :two 333)))
 
 
 ;; ----
@@ -83,24 +83,24 @@
 
 (define-test test-key-params ()
   "Key params allow the user to specify params in any order"
-   (assert-equal (func-with-key-params) ___)
-   (assert-equal (func-with-key-params :a 11 :b 22) ___)
+   (assert-equal (func-with-key-params) '(nil nil))
+   (assert-equal (func-with-key-params :a 11 :b 22) '(11 22))
    ; it is not necessary to specify all key parameters
-   (assert-equal (func-with-key-params :b 22) ___)
+   (assert-equal (func-with-key-params :b 22) '(nil 22))
    ; order is not important
-   (assert-equal (func-with-key-params :b 22 :a 0) ___))
+   (assert-equal (func-with-key-params :b 22 :a 0) '(0 22)))
 
 (defun func-key-params-can-have-defaults (&key  (a 3 a?) (b 4 b?))
   (list a a? b b?))
 
 (define-test test-key-params-can-have-defaults
     "key parameters can have defaults also"
-   (assert-equal (func-key-params-can-have-defaults) ____)
-   (assert-equal (func-key-params-can-have-defaults :a 3 :b 4) ___)
-   (assert-equal (func-key-params-can-have-defaults :a 11 :b 22) ___)
-   (assert-equal (func-key-params-can-have-defaults :b 22) ___)
+   (assert-equal (func-key-params-can-have-defaults) '(3 nil 4 nil))
+   (assert-equal (func-key-params-can-have-defaults :a 3 :b 4) '(3 t 4 t))
+   (assert-equal (func-key-params-can-have-defaults :a 11 :b 22) '(11 t 22 t))
+   (assert-equal (func-key-params-can-have-defaults :b 22) '(3 nil 22 t))
    ; order is not important
-   (assert-equal (func-key-params-can-have-defaults :b 22 :a 0) ___))
+   (assert-equal (func-key-params-can-have-defaults :b 22 :a 0) '(0 t 22 t)))
 
 
 ;; ----
@@ -112,10 +112,10 @@
 
 (define-test test-many-kinds-params
     "CL provides the programmer with more than enough rope to hang himself."
-   (assert-equal (func-with-funky-parameters 1) ___)
-   (assert-equal (func-with-funky-parameters 1 :b 2) ___)
-   (assert-equal (func-with-funky-parameters 1 :b 2 :c 3) ___)
-   (assert-equal (func-with-funky-parameters 1 :c 3 :b 2) ___))
+   (assert-equal (func-with-funky-parameters 1) '(1 nil 1 nil))
+   (assert-equal (func-with-funky-parameters 1 :b 2) '(1 2 1 (:b 2)))
+   (assert-equal (func-with-funky-parameters 1 :b 2 :c 3) '(1 2 3 (:b 2 :c 3)))
+   (assert-equal (func-with-funky-parameters 1 :c 3 :b 2) '(1 2 3 (:c 3 :b 2))))
 
 
 ;; Note that &rest parameters have to come before &key parameters.
