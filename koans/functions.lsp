@@ -56,9 +56,9 @@
    "Common Lisp optional params may bind a symbol which indicate whether the
     value was provided or defaulted.  Each optional parameter binding has the
     form (var default-form supplied-p)."
-   (assert-equal (func-with-opt-params-and-indication :test-1 :test-2) ___)
-   (assert-equal (func-with-opt-params-and-indication :test-1) ___)
-   (assert-equal (func-with-opt-params-and-indication) ___))
+   (assert-equal (func-with-opt-params-and-indication :test-1 :test-2) '(:test-1 t :test-2 t))
+   (assert-equal (func-with-opt-params-and-indication :test-1) '(:test-1 t 3 nil))
+   (assert-equal (func-with-opt-params-and-indication) '(2 nil 3 nil)))
 
 
 ;; ----
