@@ -41,8 +41,8 @@
 
 (define-test test-optional-parameters
     "Optional parameters are filled in with their default value."
-   (assert-equal (func-with-opt-params :test-1 :test-2) ___)
-   (assert-equal (func-with-opt-params :test-1) ___)
+   (assert-equal (func-with-opt-params :test-1 :test-2) '(:test-1 :test-2))
+   (assert-equal (func-with-opt-params :test-1) '(:test-1 3))
    (assert-equal (func-with-opt-params) '(2 3)))
 
 
