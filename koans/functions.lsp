@@ -129,16 +129,16 @@
    (assert-equal 19 ((lambda (a b) (+ a b)) 10 9))
   (let ((my-function))
     (setf my-function (lambda (a b) (* a b)))
-    (assert-equal ___ (funcall my-function 11 9)))
+    (assert-equal 99 (funcall my-function 11 9)))
   (let ((list-of-functions nil))
     (push (lambda (a b) (+ a b)) list-of-functions)
     (push (lambda (a b) (* a b)) list-of-functions)
     (push (lambda (a b) (- a b)) list-of-functions)
-    (assert-equal ___ (funcall (second list-of-functions) 2 33))))
+    (assert-equal 66 (funcall (second list-of-functions) 2 33))))
 
 (define-test test-lambdas-can-have-optional-params
-   (assert-equal ___ ((lambda (a &optional (b 100)) (+ a b)) 10 9))
-   (assert-equal ___ ((lambda (a &optional (b 100)) (+ a b)) 10)))
+   (assert-equal 19 ((lambda (a &optional (b 100)) (+ a b)) 10 9))
+   (assert-equal 110 ((lambda (a &optional (b 100)) (+ a b)) 10)))
 
 
 ; returns sign x
@@ -148,9 +148,9 @@
   1)
 
 (define-test test-return-from-function-early
-   (assert-equal (sign-of -5.5) ___)
-   (assert-equal (sign-of 0) ___)
-   (assert-equal (sign-of ___) 1))
+   (assert-equal (sign-of -5.5) -1)
+   (assert-equal (sign-of 0) 0)
+   (assert-equal (sign-of 7) 1))
 
 
 ;; ----
