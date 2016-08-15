@@ -39,8 +39,8 @@
     "since strings are sequences, you may use subseq"
   (let ((my-string "Groucho Marx"))
     (assert-equal "Marx" (subseq my-string 8))
-    (assert-equal (subseq my-string 0 7) ____)
-    (assert-equal (subseq my-string 1 5) ____)))
+    (assert-equal (subseq my-string 0 7) "Groucho")
+    (assert-equal (subseq my-string 1 5) "rouc")))
 
 (define-test test-accessing-individual-characters
   "char literals look like this"
