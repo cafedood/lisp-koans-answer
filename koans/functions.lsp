@@ -170,8 +170,8 @@
   (let ((add-100 (adder 100))
         (add-500 (adder 500)))
   "add-100 and add-500 now refer to different bindings to x"
-   (assert-equal ___ (funcall add-100 3))
-   (assert-equal ___ (funcall add-500 3))))
+   (assert-equal 103 (funcall add-100 3))
+   (assert-equal 503 (funcall add-500 3))))
 
 
 ;; ----
