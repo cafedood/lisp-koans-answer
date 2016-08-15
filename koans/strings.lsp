@@ -31,7 +31,7 @@
 
 (define-test test-escape-quotes
     (let ((my-string "this string has one of these \" in it"))
-      (true-or-false? ___ (typep my-string 'string))))
+      (true-or-false? t (typep my-string 'string))))
 
 
 ; This test from common lisp cookbook
