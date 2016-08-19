@@ -50,7 +50,7 @@
           (my-return))
       (dolist (x my-list my-return)
         (push (* x x) my-return))
-      (assert-equal ____ my-return)))
+      (assert-equal '(16 9 4 1) my-return)))
 
 
 (define-test test-dotimes
@@ -58,7 +58,7 @@
       binding them in order to your selected symbol."
     (let ((out-list nil))
       (dotimes (y 3) (push y out-list))
-      (assert-equal out-list ___)))
+      (assert-equal out-list '(2 1 0))))
 
 
 (defvar *x* "global")
