@@ -109,11 +109,11 @@
   (assert-equal (vowels-to-xs "Astronomy") "xstrxnxmy")
   (let* ((subjects '("Astronomy" "Biology" "Chemistry" "Linguistics"))
          (mc-result (mapcar #'vowels-to-xs subjects)))
-    (assert-equal mc-result ____)))
+    (assert-equal mc-result '("xstrxnxmy" "Bxxlxgy" "Chxmxstry" "Lxngxxstxcs"))))
 
 
 ;; ----
 
 (define-test test-mapcar-with-lambda
     (let ((mc-result (mapcar (lambda (x) (mod x 10)) '(21 152 403 14))))
-      (assert-equal mc-result ____)))
+      (assert-equal mc-result '(1 2 3 4))))
