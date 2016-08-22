@@ -66,8 +66,8 @@
     "dotimes establishes a local lexical binding which may shadow
      a global value."
   (dotimes (*x* 4)
-    (true-or-false? ___ (equal "global" *x*)))
-  (true-or-false? ___ (equal "global" *x*)))
+    (true-or-false? nil (equal "global" *x*)))
+  (true-or-false? t (equal "global" *x*)))
 
 
 (define-test test-loop-until-return
