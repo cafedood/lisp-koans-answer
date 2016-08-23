@@ -33,7 +33,7 @@
 (define-test test-transpose-using-mapcar
     "Replace the usage of WRONG-FUNCTION in 'transpose' with the
      correct lisp function (don't forget the #')."
-  (defun WRONG-FUNCTION-1 (&rest rest) '())
+  (defun WRONG-FUNCTION-1 (&rest rest) rest)
   (defun transpose (L) (apply #'mapcar (cons #'WRONG-FUNCTION-1 L)))
   (assert-equal '((1 4 7)
                   (2 5 8)
@@ -65,8 +65,8 @@
 
 (define-test test-reduce-with-initial-value
     "We can supply an initial value to reduce."
-  (assert-equal ___ (reduce #'expt '(10 21 34 43) :initial-value 1))
-  (assert-equal ___ (reduce #'expt '(10 21 34 43) :initial-value 0)))
+  (assert-equal 1 (reduce #'expt '(10 21 34 43) :initial-value 1))
+  (assert-equal 0 (reduce #'expt '(10 21 34 43) :initial-value 0)))
 
 
 (defun WRONG-FUNCTION-2 (a b) (a))
