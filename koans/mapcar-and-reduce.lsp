@@ -59,8 +59,8 @@
 (define-test test-reduce-right-to-left
     "The keyword :from-end allows us to apply
      reduce from right to left."
-  (assert-equal ___ (reduce #'+ '(1 2 3 4) :from-end t))
-  (assert-equal ___ (reduce #'expt '(2 3 2) :from-end t)))
+  (assert-equal 10 (reduce #'+ '(1 2 3 4) :from-end t))
+  (assert-equal 512 (reduce #'expt '(2 3 2) :from-end t)))
 
 
 (define-test test-reduce-with-initial-value
