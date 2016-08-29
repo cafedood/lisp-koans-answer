@@ -17,11 +17,11 @@
       (if t
           (setf result "true value")
           (setf result "false value"))
-      (assert-equal result ____)
+      (assert-equal result "true value")
       (if nil
           (setf result "true value")
           (setf result "false value"))
-      (assert-equal result ____)))
+      (assert-equal result "false value")))
 
 
 (define-test test-when-and-unless
