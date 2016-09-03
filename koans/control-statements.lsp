@@ -45,7 +45,7 @@
 (define-test test-and-short-circuits
     "and only evaluates forms until one evaluates to nil"
   (assert-equal
-   ____
+   2
    (let ((x 0))
      (and
       (setf x (+ 1 x))
@@ -58,7 +58,7 @@
 (define-test test-or-also-short-circuits
     "or only evaluates until one argument evaluates to non-nil"
   (assert-equal
-   ____
+   1
    (let ((x 0))
      (or
       (setf x (+ 1 x))
