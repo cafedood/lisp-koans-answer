@@ -20,7 +20,7 @@
            (loop-result
              (loop for letter in letters
                    collect letter)))
-      (assert-equal loop-result ____)))
+      (assert-equal loop-result letters)))
 
 
 (define-test test-compound-loop
