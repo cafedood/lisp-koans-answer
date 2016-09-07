@@ -39,7 +39,7 @@
              (loop for letter in letters
                    for i from 0 to 1000 by 5
                    collect (list i letter))))
-      (assert-equal loop-result ____ )))
+      (assert-equal loop-result '((0 :a) (5 :b) (10 :c) (15 :d)) )))
 
 
 (define-test test-counting-backwards
