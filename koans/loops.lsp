@@ -29,7 +29,7 @@
              (loop for letter in letters
                    for i from 1 to 1000
                    collect (list i letter))))
-      (assert-equal loop-result ____)))
+      (assert-equal loop-result '((1 :a) (2 :b) (3 :c) (4 :d)) )))
 
 
 (define-test test-counting-loop-skip-by-syntax
